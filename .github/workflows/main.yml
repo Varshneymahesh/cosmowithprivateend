@@ -1,0 +1,25 @@
+on: 
+  push:
+    branches:
+      - main
+      - feture/*
+permissions: 
+  id-token: write       # ✅ Required for OIDC
+  contents: read
+      
+
+jobs:
+  checkoutrepo:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5.0.0
+    - name: Azure Login
+      uses: Azure/login@v2.3.0
+      with:
+        client-id: "3dc46f31-fef5-4091-8ad5-5cd445268508"
+        tenant-id:  "7bd062fa-35e3-46b0-882e-1de9980dc2f8"
+        subscription-id: "75146836-fdff-4091-9190-2ee9cca9c8b6"
+    
+    
+
