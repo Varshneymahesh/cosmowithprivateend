@@ -10,7 +10,8 @@ permissions:
 
 jobs:
   checkoutrepo:
-    runs-on: self-hosted
+    runs-on: [self-hosted, windows, x64]
+
     steps:
     - name: Checkout
       uses: actions/checkout@v5.0.0
