@@ -1,0 +1,6 @@
+variable "dnszonename" {
+  
+}
+variable "rgname" {
+  
+}
