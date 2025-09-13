@@ -34,7 +34,8 @@ jobs:
   manualvalidation:  
     needs: checkoutrepo
     runs-on: ubuntu
-    env: dev
+    environment:
+      name:  dev
     steps:
       - run: echo "Waiting for manual approval..."
     
