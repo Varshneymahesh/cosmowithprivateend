@@ -31,6 +31,13 @@ jobs:
     - name: Terraform Plan
       run: terraform plan
       working-directory: ./env/dev
+  manualvalidation:  
+    needs: checkoutrepo
+    runs-on: ubuntu
+    env: dev
+    steps:
+      - run: echo "Waiting for manual approval..."
+    
 
 
 
