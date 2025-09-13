@@ -55,6 +55,7 @@ jobs:
       working-directory:  ./env/dev
     - name: terraform apply
       run: terraform apply --auto-approve
+      working-directory:  ./env/dev
       
    
      
