@@ -23,7 +23,7 @@ jobs:
         subscription-id: "75146836-fdff-4091-9190-2ee9cca9c8b6"
     - name: Terraform init with backend
       run: terraform init -backend-config="resource_group_name=stg-rg" -backend-config="storage_account_name=cosmosstg01" -backend-config="container_name=cosmoscon" -backend-config="key=dev.terraform.tfstate"
-      working-directory:  \env\dev
+      working-directory: \cosmowithprivateend\env\dev
 
         
 
