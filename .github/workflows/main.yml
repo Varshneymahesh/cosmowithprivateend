@@ -4,7 +4,7 @@ on:
       - main
       - feture/*
 permissions: 
-  id-token: write       # ✅ Required for OIDC
+  id-token: write       
   contents: read
       
 
