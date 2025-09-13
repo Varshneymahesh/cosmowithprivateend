@@ -38,6 +38,29 @@ jobs:
       name:  dev
     steps:
       - run: echo "Waiting for manual approval..."
+  Terraformapply:
+    needs: manualvalidation
+    runs-on: self-hosted
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5.0.0
+    - name: Azure Login
+      uses: Azure/login@v2.3.0
+      with:
+        client-id: "3dc46f31-fef5-4091-8ad5-5cd445268508"
+        tenant-id:  "7bd062fa-35e3-46b0-882e-1de9980dc2f8"
+        subscription-id: "75146836-fdff-4091-9190-2ee9cca9c8b6"
+    - name: Terraform init with backend
+      run: terraform init -backend-config="resource_group_name=stg-rg" -backend-config="storage_account_name=cosmosstg01" -backend-config="container_name=cosmoscon" -backend-config="key=dev.terraform.tfstate"
+      working-directory:  ./env/dev
+    - name: terraform apply
+      run: terraform apply --auto-approve
+      
+   
+     
+
+
+      
     
 
 
