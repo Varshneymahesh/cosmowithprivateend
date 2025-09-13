@@ -24,6 +24,13 @@ jobs:
     - name: Terraform init with backend
       run: terraform init -backend-config="resource_group_name=stg-rg" -backend-config="storage_account_name=cosmosstg01" -backend-config="container_name=cosmoscon" -backend-config="key=dev.terraform.tfstate"
       working-directory:  ./env/dev
+    - name: Terraform Validate
+      run: terraform validate
+      working-directory: ./env/dev
+
+    - name: Terraform Plan
+      run: terraform plan
+      working-directory: ./env/dev
 
 
 
